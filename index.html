@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>phoenix</title>
+</head>
+<body>
+    <div class="grid-background">
+
+        <div class="container">
+            <div class="img1">
+            </div>
+        </div>
+
+        
+        <div class="container2">
+                    <div class="caixa">
+                        <div class="titulo">
+                            <p>INSIRA A SENHA <br> PARA CONTINUAR</p>
+                        </div>
+                        <div class="caixa-senha">
+                            <input type="text" class="input">
+                            <br>
+                            <button class="button">PROSSEGUIR</button>
+                        </div>
+                    </div>
+        </div>
+        <div class="container3">
+            <div class="video-container">
+                <div class="mensagem-final" id="mensagem-final">
+                    <p id="p1"></p>
+                    <p id="p2"></p>
+                </div>
+            </div>
+      </div>
+       <!--<div class="mensagem-acerto" style="display: none;">
+            <p>Parabéns por acertar!</p>
+        </div>-->
+
+    </div>
+    <script>
+        $(document).ready(function(){
+            function anima(){
+                $(".container").fadeOut(1000, function() {
+                    $(this).remove();
+                });
+            };
+            setTimeout(anima, 5000);
+
+            $(".button").click(function(){
+                if ($(".input").val() == "lacassandra"){
+                    $(".container2").fadeOut(1000, function() {
+                    $(this).remove();
+                });
+                    $(".container3").fadeIn(500, function(){
+                        $("#p1").text("Parabéns, vocês chegaram no final. Estão prontos para mais desafios? HAHAHAHA");
+                        $("#p2").text("Agora vocês estão sob o meu controle, venham ao meu encontro se forem capazes de navegar em mares perigosos.");
+                        $("#p1").addClass("mensagem-p");
+                        $("#p2").addClass("mensagem-p");
+                    });
+                } else {
+                    $(".input").val("erro");
+                    function sair(){
+                        $(".input").val("");
+                    };
+                    setTimeout(sair, 800);
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>
